@@ -6,17 +6,15 @@ node {
    git 'https://github.com/imbhascker13/ansiblerepo.git'
   }
     
- //def project_path="capstoneproject/capstoneproject/"
- 
-// dir(project_path) {
+
 
 	stage('Download package from JFrog') {
             def server= Artifactory.server 'Artifactory'
             def downloadSpec = """{
             "files": [
             {
-                "pattern": "Bikes/Bikes-0.0.1-SNAPSHOT.war",
-                "target": "./capstoneproject.war"
+                "pattern": "travels/TravelBooking-0.0.1-SNAPSHOT.war",
+                "target": "./travelbooking.war"
             }
             ]
             }"""
@@ -28,7 +26,7 @@ node {
      }
   
    
-//}	-----------dir end---------  
+
 
  notify('Job Completed')   
 } catch (err) {
